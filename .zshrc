@@ -99,16 +99,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi='nvim'
-alias vim='nvim'
+alias ls="ls --color=auto"
+alias vim="nvim"
+alias vi="nvim"
+alias ..="cd .."
+alias mv="mv -i"
+alias rm="rm -i"
+alias cp="cp -i"
 
-alias ls='ls -lah --color'
-alias ..='cd ..'
-alias c='clear'
+. "$HOME/.cargo/env"
 
-# confirm before overwriting something
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
-
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+bindkey -v

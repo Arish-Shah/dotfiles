@@ -1,5 +1,5 @@
-theme = "gruvbox-dark"
-icons = "awesome"
+theme = "dracula"
+icons = "awesome5"
 
 [[block]]
 block = "music"
@@ -9,24 +9,30 @@ on_collapsed_click = "spotify"
 
 [[block]]
 block = "sound"
+on_click = "pavucontrol"
 
 [[block]]
 block = "net"
 device = "wlan0"
-format = "{ssid} {speed_down;K*b}"
+# format = "{ssid} {speed_down;K*b}"
+format = "{ssid}"
 interval = 5
 
 [[block]]
 block = "backlight"
-minimum = 5
-maximum = 100
-cycle = [100, 50, 0, 50]
+on_click = "xfce4-power-manager-settings"
 
 [[block]]
 block = "memory"
 display_type = "memory"
 format_mem = "{mem_used}"
 format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "hueshift"
+hue_shifter = "redshift"
+step = 50
+click_temp = 4000
 
 [[block]]
 block = "battery"

@@ -1,17 +1,15 @@
-" plugins
 call plug#begin('~/.config/nvim/plugged')
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'gruvbox-community/gruvbox'
-Plug 'itchyny/lightline.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'gruvbox-community/gruvbox'
+    Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'itchyny/lightline.vim'
 call plug#end()
 
-" setters
+set number relativenumber
+set termguicolors
 set mouse=a
 set hidden
-set number
-set relativenumber
 set nowrap
 set noswapfile
 set nobackup
@@ -25,18 +23,17 @@ set cursorline
 set incsearch
 set nohlsearch
 set ignorecase
+set smartcase
+set smartindent
 set noshowmode
 set clipboard+=unnamedplus
 
+lua require'colorizer'.setup()
+
 let mapleader = " "
 
-let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-    \ }
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
-" remaps
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -46,6 +43,7 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>p :GFiles<CR>
 
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
-nnoremap <C-s> :w<CR>
 
 colorscheme gruvbox
+hi Normal guibg=none ctermbg=none
+hi NonText guibg=none ctermbg=none

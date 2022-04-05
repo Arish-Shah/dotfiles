@@ -1,8 +1,14 @@
 set $mod Mod4
 font pango:Ubuntu 12
 
-# swap super and alt key
-exec_always --no-startup-id setxkbmap -option altwin:swap_alt_win
+# Volume control
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/notifications/volume up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/notifications/volume down
+bindsym XF86AudioMute exec --no-startup-id ~/.config/notifications/volume mute
+
+# Brightness control 
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/notifications/backlight up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/notifications/backlight down
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -11,13 +17,12 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#ebdbb2' -nb '#282828' -sb '#b8bb26' -sf '#282828' -fn 'Ubuntu-13.5'"
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+Shift+d exec "dmenu_run -nf '#D9E0EE' -nb '#1E1E2E' -sb '#96CDFB' -sf '#161320' -fn 'Ubuntu-13' -p 'dmenu%'"
 
 # change focus
 bindsym $mod+h focus left
@@ -59,33 +64,22 @@ bindsym $mod+Shift+t layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # Name the workspaces
-#set $ws1 "1:"
-#set $ws2 "2:"
-#set $ws3 "3:"
-#set $ws4 "4:A"
-#set $ws5 "5:B"
-#set $ws6 "6"
-#set $ws7 "7"
-#set $ws8 "8"
-#set $ws9 "9"
-#set $ws10 "10"
-
-set $ws1 "1:&gt;&lt;&gt;"
-set $ws2 "2:www"
-set $ws3 "3:Γ"
-set $ws4 "4:Δ"
-set $ws5 "5:E"
-set $ws6 "6:Z"
-set $ws7 "7:H"
-set $ws8 "8:Θ"
-set $ws9 "9:I"
-set $ws10 "10:K"
+set $ws1 "1:1 "
+set $ws2 "2:2 "
+set $ws3 "3:3 "
+set $ws4 "4:4 "
+set $ws5 "5:5 "
+set $ws6 "6:6 "
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10:10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -116,83 +110,81 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Yes, exit i3' 'i3-msg exit' -f 'pango: Ubuntu 12'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Yes, exit i3' 'i3-msg exit' -f 'pango:Ubuntu 12'"
+
+# take screenshot
+bindsym --release Print exec ~/.config/notifications/screenshot window
 
 # enable float for some windows
 for_window [class="Lxappearance"]                   floating enable
 for_window [class="Pavucontrol"]                    floating enable
-for_window [class="Nitrogen"]                       floating enable
 for_window [class="mpv"]                            floating enable
-for_window [class="Xfce4-power-manager-settings"]   floating enable
-# for_window [class="Mousepad"]                       floating enable
+#for_window [class="Mousepad"]                       floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape or $mod+r
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #b8bb26 #b8bb26 #282828 #b8bb26   #b8bb26
-client.focused_inactive #98971a #98971a #282828 #98971a   #98971a
-client.unfocused        #504945 #504945 #888888 #504945   #504945
-client.urgent           #cc241d #cc241d #ebdbb2 #cc241d   #cc241d
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# class                 border  bground text    indicator child_border
+client.focused          #96CDFB #96CDFB #161320 #96CDFB   #96CDFB
+client.focused_inactive #575268 #575268 #D9E0EE #575268   #575268
+client.unfocused        #575268 #575268 #D9E0EE #575268   #575268
+client.urgent           #F28FAD #F28FAD #161320 #F28FAD   #F28FAD
+client.placeholder      #1E1E2E #1E1E2E #D9E0EE #1E1E2E   #1E1E2E
 
-client.background       #ffffff
+client.background       #D9E0EE
 
 # Start i3bar to display a workspace bar
 bar {
-    i3bar_command i3bar --transparency
-    status_command i3status -c ~/.config/i3/i3status.conf
-    strip_workspace_numbers yes
-    workspace_min_width 28
-    separator_symbol "  |  "
-    position top
+  colors {
+    background #1E1E2Edd
+    statusline #D9E0EE
+    separator  #6E6C7E
 
-    colors {
-        background #282828e6
-        statusline #ebdbb2
-        separator #928374
-
-        focused_workspace  #b8bb26 #b8bb26 #282828
-        active_workspace   #98971a #98971a #282828
-        inactive_workspace #282828 #282828 #ebdbb2
-        urgent_workspace   #cc241d #cc241d #ebdbb2
-        binding_mode       #cc241d #cc241d #ebdbb2
-    }
+    focused_workspace  #96CDFB #96CDFB #161320
+    active_workspace   #6E6C7E #6E6C7E #161320
+    inactive_workspace #1E1E2E #1E1E2E #D9E0EE
+    urgent_workspace   #F28FAD #F28FAD #161320
+    binding_mode       #F28FAD #F28FAD #161320
+  }
+  i3bar_command i3bar -t
+  status_command i3status-rs
+  position top
+  workspace_min_width 35
+  strip_workspace_numbers yes
 }
 
-# borders and gaps
-default_border pixel 2
-default_floating_border none
+# window borders / gaps
+for_window [class="^.*"] border pixel 2
 gaps inner 14
 gaps outer -2
+smart_gaps on
 
-# startup applications
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id volumeicon
-exec --no-startup-id xfce4-power-manager
+# swap super and alt key
+exec_always --no-startup-id setxkbmap -option altwin:swap_alt_win
+
+# autostart applications
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=000000
+exec --no-startup-id lxsession
 exec --no-startup-id picom -b
-exec --no-startup-id nitrogen --restore

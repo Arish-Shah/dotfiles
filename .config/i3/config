@@ -113,7 +113,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Yes, exit i3' 'i3-msg exit' -f 'pango:Ubuntu 12'"
 
 # take screenshot
-bindsym --release Print exec ~/.config/notifications/screenshot window
+bindsym --release Print exec ~/.config/notifications/screenshot screen
 
 # enable float for some windows
 for_window [class="Lxappearance"]                   floating enable

@@ -21,8 +21,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -modi drun,run -show drun"
-bindsym $mod+Shift+d exec "dmenu_run -nf '#D9E0EE' -nb '#1E1E2E' -sb '#96CDFB' -sf '#161320' -fn 'Ubuntu-13' -p 'dmenu%'"
+bindsym $mod+Shift+d exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -i -nf '#D9E0EE' -nb '#1E1E2E' -sb '#96CDFB' -sf '#161320' -fn 'Ubuntu-13' -p 'dmenu%'"
 
 # change focus
 bindsym $mod+h focus left
@@ -70,16 +70,16 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # Name the workspaces
-set $ws1 "1:1 "
-set $ws2 "2:2 "
-set $ws3 "3:3 "
-set $ws4 "4:4 "
-set $ws5 "5:5 "
-set $ws6 "6:6 "
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10:10 "
+set $ws10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -171,7 +171,7 @@ bar {
   i3bar_command i3bar -t
   status_command i3status-rs
   position top
-  workspace_min_width 35
+  workspace_min_width 30
   strip_workspace_numbers yes
 }
 
@@ -181,10 +181,10 @@ gaps inner 14
 gaps outer -2
 smart_gaps on
 
-# swap super and alt key
+# swap keys
 exec_always --no-startup-id setxkbmap -option altwin:swap_alt_win
 
 # autostart applications
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=000000
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=1E1E2E
 exec --no-startup-id lxsession
 exec --no-startup-id picom -b

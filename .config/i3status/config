@@ -1,4 +1,5 @@
 general {
+    output_format = "i3bar"
     colors = true
     color_good = "#ABE9B3"
 	  color_bad = "#F28FAD"
@@ -7,7 +8,7 @@ general {
 }
 
 order += "volume master"
-order += "battery 0"
+order += "battery all"
 order += "wireless wlan0"
 order += "memory"
 order += "cpu_temperature 0"
@@ -15,17 +16,22 @@ order += "time"
 
 volume master {
     format = " %volume"
-    format_muted = " (%volume)"
+    format_muted = " "
     device = "default"
     separator_block_width = 20
 }
 
-battery 0 {
-    format = "  %percentage"
+battery all {
+    format = "%status  %percentage"
     format_down = "No battery"
-    path = "/sys/class/power_supply/BAT1/uevent"
-    low_threshold = 20
+    status_chr = ""
+    status_bat = ""
+    status_unk = ""
+    status_full = ""
+    low_threshold = 15
     separator_block_width = 20
+    integer_battery_capacity = true
+    last_full_capacity = true
 }
 
 wireless wlan0 {
@@ -47,6 +53,6 @@ cpu_temperature 0 {
 }
 
 time {
-    format = "  %a, %h-%d   %H:%M:%S"
+    format = "  %a, %h-%d   %H:%M:%S  "
     separator_block_width = 20
 }

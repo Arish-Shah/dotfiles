@@ -1,0 +1,52 @@
+general {
+    colors = true
+    color_good = "#ABE9B3"
+	  color_bad = "#F28FAD"
+	  color_degraded = "#FAE3B0"
+    interval = 3
+}
+
+order += "volume master"
+order += "battery 0"
+order += "wireless wlan0"
+order += "memory"
+order += "cpu_temperature 0"
+order += "time"
+
+volume master {
+    format = " %volume"
+    format_muted = " (%volume)"
+    device = "default"
+    separator_block_width = 20
+}
+
+battery 0 {
+    format = "  %percentage"
+    format_down = "No battery"
+    path = "/sys/class/power_supply/BAT1/uevent"
+    low_threshold = 20
+    separator_block_width = 20
+}
+
+wireless wlan0 {
+    format_up = " %essid"
+    format_down = "WiFi: Down"
+    separator_block_width = 20
+}
+
+memory {
+    format = " %used"
+    threshold_degraded = "15%"
+    format_degraded = " %free"
+    separator_block_width = 20
+}
+
+cpu_temperature 0 {
+    format = "  %degrees °C"
+    separator_block_width = 20
+}
+
+time {
+    format = "  %a, %h-%d   %H:%M:%S"
+    separator_block_width = 20
+}

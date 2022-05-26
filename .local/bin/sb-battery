@@ -1,0 +1,27 @@
+#!/bin/bash
+
+path=/sys/class/power_supply/BAT1
+
+stat="$(cat $path/status)"
+cap="$(cat $path/capacity)"
+
+case "$stat" in
+	"Charging"|"Unknown") 
+		icon=
+		;;
+	*)
+		if [ "$cap" -le 10 ]; then
+			icon=""
+		elif [ "$cap" -le 35 ]; then
+			icon=""
+		elif [ "$cap" -le 60 ]; then
+			icon=""	
+		elif [ "$cap" -le 85 ]; then
+			icon=""	
+		else
+			icon=""
+		fi
+		;;
+esac
+
+echo $icon $cap%

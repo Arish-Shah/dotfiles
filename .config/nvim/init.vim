@@ -1,8 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    Plug 'gruvbox-community/gruvbox'
     Plug 'itchyny/lightline.vim'
-    Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 
 set number relativenumber
@@ -12,9 +10,9 @@ set hidden
 set nowrap
 set noswapfile
 set nobackup
-set tabstop=2 softtabstop=2
+set tabstop=4 softtabstop=4
 set expandtab
-set shiftwidth=2
+set shiftwidth=4
 set smartindent
 set scrolloff=8
 set colorcolumn=80
@@ -30,18 +28,19 @@ set autoread
 
 let mapleader = " "
 
-let g:lightline = { 'colorscheme': 'catppuccin' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
-nnoremap <leader>p :Files<CR>
-nnoremap <C-p> :GFiles<CR>
+"nnoremap <leader>p :Files<CR>
+"nnoremap <C-p> :GFiles<CR>
 
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
-colorscheme catppuccin
+colorscheme gruvbox
 
 hi Normal guibg=NONE ctermbg=NONE
+

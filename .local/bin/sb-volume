@@ -1,0 +1,20 @@
+#!/bin/bash
+
+volume="$(pamixer --get-volume)"
+mute="$(pamixer --get-mute)"
+
+if [ "$volume" -eq 0 ] || [ "$mute" == "yes" ]; then
+	icon=""
+elif [ "$volume" -lt 30 ]; then
+	icon=""
+else
+	icon=""
+fi
+
+message="$icon $volume%"
+
+if [ "$mute" == "true" ]; then
+	printf '%s\n' "$message (muted)"
+else
+	printf '%s\n' "$message"
+fi

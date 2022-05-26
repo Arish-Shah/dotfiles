@@ -1,0 +1,18 @@
+#!/bin/sh
+
+function send_notification() {
+    brightness="$(brightnessctl -m | cut -d, -f4 | sed 's/%//')"
+	dunstify -a "brightness" -r 9991 -h int:value:"$brightness" -i xfpm-brightness-lcd "Backlight"
+}
+
+case $1 in
+up)
+	brightnessctl --exponent --quiet set +5%
+	send_notification $1
+	;;
+down)
+	brightnessctl --exponent --quiet set 5%-
+	send_notification $1
+	;;
+esac
+

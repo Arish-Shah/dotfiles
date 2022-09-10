@@ -1,5 +1,0 @@
-#!/bin/bash
-
-ssid="$(iw dev wlo1 link | head -2 | tail -1 | awk '{ print $2 }')"
-
-printf '%s\n' " $ssid"

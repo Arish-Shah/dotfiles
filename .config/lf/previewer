@@ -1,6 +1,6 @@
 #!/bin/sh
 draw() {
-  ~/.config/lf/draw_img.sh "$@"
+  ~/.config/lf/draw_img "$@"
   exit 1
 }
 
@@ -36,9 +36,6 @@ if [ -n "$FIFO_UEBERZUG" ]; then
       cache "$cache" "$@"
       ffmpegthumbnailer -i "$file" -o "$cache" -s 0
       draw "$cache" "$@"
-      ;;
-    text/*)
-      cat -n "$file"
       ;;
   esac
 fi

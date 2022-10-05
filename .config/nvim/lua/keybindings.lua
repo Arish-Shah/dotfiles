@@ -6,10 +6,12 @@ end
 
 map("n", "<leader><CR>", "<cmd>source ~/.config/nvim/init.lua<CR>")
 
+-- telescope
 map("n", "<C-p>", builtin.find_files)
 map("n", "<C-f>", builtin.grep_string)
 map("n", "<C-b>", builtin.buffers)
 
+-- lsp
 map("n", "K", vim.lsp.buf.hover)
 map("n", "gd", vim.lsp.buf.definition)
 map("n", "gT", vim.lsp.buf.type_definition)
@@ -17,7 +19,7 @@ map("n", "<leader>df", vim.diagnostic.goto_next)
 map("n", "<leader>r", vim.lsp.buf.rename)
 map("n", "<leader>o", vim.lsp.buf.code_action)
 
--- autocomplete keybindings
+-- autocomplete
 local cmp = require("cmp")
 
 cmp.setup({
@@ -42,17 +44,20 @@ cmp.setup({
     })
 })
 
--- Set configuration for specific filetype.
+-- configuration for specific filetype
 cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({
-        { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+        { name = "cmp_git" },
     }, {
         { name = "buffer" },
     })
 })
 
--- Set up lspconfig.
+-- lspconfig
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require("lspconfig")["clangd"].setup {
+    capabilities = capabilities
+}
+require("lspconfig")["tsserver"].setup {
     capabilities = capabilities
 }

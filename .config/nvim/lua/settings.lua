@@ -1,3 +1,20 @@
+require("gruvbox").setup {
+    italic = false
+}
+
+require("lualine").setup()
+
+require("telescope").setup {
+    file_ignore_patterns = {
+        "./node_modules/*",
+        "node_modules",
+        "^node_modules/*",
+        "node_modules/*"    
+    },
+}
+
+require("nvim-autopairs").setup()
+
 local o = vim.opt
 local g = vim.g
 
@@ -37,4 +54,4 @@ o.completeopt = { "menu", "menuone", "noselect" }
 
 g.mapleader = " "
 
-vim.cmd[[colorscheme gruvbox]]
+vim.cmd([[colorscheme gruvbox]])

@@ -4,20 +4,14 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { silent = true })
 end
 
-map("n", "<leader><CR>", "<cmd>source ~/.config/nvim/init.lua<CR>")
-
 -- telescope
 map("n", "<C-p>", builtin.find_files)
-map("n", "<C-f>", builtin.grep_string)
 map("n", "<C-b>", builtin.buffers)
 
--- lsp
-map("n", "K", vim.lsp.buf.hover)
-map("n", "gd", vim.lsp.buf.definition)
-map("n", "gT", vim.lsp.buf.type_definition)
-map("n", "<leader>df", vim.diagnostic.goto_next)
-map("n", "<leader>r", vim.lsp.buf.rename)
-map("n", "<leader>o", vim.lsp.buf.code_action)
+map("n", "<leader>h", ":wincmd h<CR>")
+map("n", "<leader>j", ":wincmd j<CR>")
+map("n", "<leader>k", ":wincmd k<CR>")
+map("n", "<leader>l", ":wincmd l<CR>")
 
 -- autocomplete
 local cmp = require("cmp")
@@ -55,9 +49,26 @@ cmp.setup.filetype("gitcommit", {
 
 -- lspconfig
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("lspconfig")["clangd"].setup {
-    capabilities = capabilities
-}
-require("lspconfig")["tsserver"].setup {
-    capabilities = capabilities
-}
+
+local on_attach = function()
+    map("n", "gD", vim.lsp.buf.declaration)
+    map("n", "gd", vim.lsp.buf.definition)
+    map("n", "K", vim.lsp.buf.hover)
+    map("n", "gi", vim.lsp.buf.implementation)
+    map("n", "gr", vim.lsp.buf.references)
+    map("n", "<leader>a", vim.lsp.buf.code_action)
+    map("n", "<leader>D", vim.lsp.buf.type_definition)
+    map("n", "<leader>r", vim.lsp.buf.rename)
+    map("n", "<leader>f", function() vim.lsp.buf.format { async = true } end)
+    map("n", "<leader>df", vim.diagnostic.goto_next)
+end
+
+local servers = { "clangd", "tsserver" }
+
+for _, lsp in ipairs(servers) do
+    require("lspconfig")[lsp].setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }
+end
+

@@ -1,3 +1,3 @@
 require("plugins")
-require("settings")
-require("keybindings")
+require("setup")
+require("config")

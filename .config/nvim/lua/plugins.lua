@@ -9,39 +9,69 @@ local ensure_packer = function()
   return false
 end
 
+-- run PackerSync on file save
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
 local packer_bootstrap = ensure_packer()
 
-return require("packer").startup(function(use)
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  vim.notify("packer not found!")
+  return
+end
+
+return packer.startup(function(use)
   use "wbthomason/packer.nvim"
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-  }
+
+  -- lsp
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+  use "neovim/nvim-lspconfig"
+
+  -- cmp
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "saadparwaiz1/cmp_luasnip"
   use "L3MON4D3/LuaSnip"
 
- use({
+  -- formatter
+  use {
     "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-  })
+    requires = { "nvim-lua/plenary.nvim" }
+  }
+
+  -- better syntax highlight through treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
+  }
 
   use {
     "nvim-telescope/telescope.nvim", tag = "0.1.0",
+    -- or                            , branch = "0.1.x",
     requires = { {"nvim-lua/plenary.nvim"} }
   }
 
+  -- match bracket pairs
+  use "windwp/nvim-autopairs"
+
+  -- colorscheme
   use "ellisonleao/gruvbox.nvim"
+  use "folke/tokyonight.nvim"
+
+  -- statusline
   use {
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
-  use "windwp/nvim-autopairs"
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  -- automatically set up your configuration after cloning packer.nvim
+  -- put this at the end after all plugins
   if packer_bootstrap then
     require("packer").sync()
   end

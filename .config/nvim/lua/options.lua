@@ -1,13 +1,8 @@
 local o = vim.opt
-local g = vim.g
-local c = vim.cmd
-
-c([[colorscheme gruvbox]])
-
-g.mapleader = " "
+local cmd = vim.cmd
 
 o.number = true
-o.relativenumber = true
+o.relativenumber = false
 o.mouse = "a"
 o.hidden = true
 o.swapfile = false
@@ -16,6 +11,7 @@ o.tabstop = 2
 o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
+o.smartindent = true
 o.smartindent = true
 o.autoindent = true
 o.scrolloff = 8
@@ -33,13 +29,13 @@ o.background = "dark"
 o.autoread = true
 o.completeopt = { "menu", "menuone", "noselect" }
 o.clipboard = o.clipboard + "unnamedplus"
--- o.showmatch = true
-o.backspace = "indent,start,eol"
+o.showmatch = false
 o.updatetime = 500
 o.splitbelow = true
 o.splitright = true
 o.shell = "zsh"
 
 -- remove whitespace on save
-c([[au BufWritePre * :%s/\s\+$//e]])
-c([[au BufEnter * set fo-=c fo-=r fo-=o]])
+cmd([[au BufWritePre * :%s/\s\+$//e]])
+cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+

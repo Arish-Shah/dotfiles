@@ -1,5 +1,9 @@
 local o = vim.opt
+local g = vim.g
 local cmd = vim.cmd
+
+g.loaded = 1
+g.loaded_netrwPlugin = 1
 
 o.number = true
 o.relativenumber = false

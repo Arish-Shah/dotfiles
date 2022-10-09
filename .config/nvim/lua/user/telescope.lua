@@ -1,9 +1,9 @@
 local opts = { noremap=true, silent=true }
 local map = vim.keymap.set
 
-local status_ok, utils = pcall(require, "telescope.utils")
+local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  vim.notify("telescope.utils not found!")
+  vim.notify("telescope not found!")
 end
 
 local status_ok, builtin = pcall(require, "telescope.builtin")
@@ -11,16 +11,11 @@ if not status_ok then
   vim.notify("telescope.builtin not found!")
 end
 
-local project_files = function()
-    local _, ret, _ = utils.get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
-    if ret == 0 then
-        builtin.git_files()
-    else
-        builtin.find_files()
-    end
-end
+telescope.setup({
+  defaults = {
+    file_ignore_patterns = {"node_modules"}
+  }
+})
 
-map("n", "<leader>p", project_files, opts)
-map("n", "<C-p>", builtin.oldfiles, opts)
-map("n", "<C-f>", builtin.buffers, opts)
-map("n", "<C-F>", builtin.live_grep, opts)
+map("n", "<C-p>", builtin.find_files, opts)
+map("n", "<C-f>", builtin.live_grep, opts)

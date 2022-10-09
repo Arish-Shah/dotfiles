@@ -11,7 +11,7 @@ if not status_ok then
   return
 end
 
-local servers = { "tsserver", "html", "cssls" }
+local servers = { "tsserver", "jsonls" }
 
 mason.setup()
 mason_lspconfig.setup({
@@ -77,12 +77,44 @@ if not status_ok then
 end
 
 -- enable some language servers with the additional completion capabilities offered by nvim-cmp
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.jsonls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = {
+        {
+          description = "NPM configuration file",
+          fileMatch = { "package.json" },
+          url = "https://json.schemastore.org/package.json",
+        },
+        {
+          description = "TypeScript compiler configuration file",
+          fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+          url = "https://json.schemastore.org/tsconfig.json",
+        },
+        {
+          description = "Prettier config",
+          fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
+          url = "https://json.schemastore.org/prettierrc",
+        }
+      }
+    }
   }
-end
+})
+
+-- loop over all the language servers at once
+-- for _, lsp in ipairs(servers) do
+--   lspconfig[lsp].setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   }
+-- end
 
 -- luasnip setup
 local status_ok, luasnip = pcall(require, "luasnip")

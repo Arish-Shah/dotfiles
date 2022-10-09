@@ -57,6 +57,9 @@ return packer.startup(function(use)
     requires = { {"nvim-lua/plenary.nvim"} }
   }
 
+  -- git signs
+  use "lewis6991/gitsigns.nvim"
+
   -- match bracket pairs
   use "windwp/nvim-autopairs"
 

@@ -68,12 +68,17 @@ return packer.startup(function(use)
   -- git signs
   use "lewis6991/gitsigns.nvim"
 
+  -- comments
+  use "numToStr/Comment.nvim"
+
   -- match bracket pairs
   use "windwp/nvim-autopairs"
 
+  -- indent
+  use "lukas-reineke/indent-blankline.nvim"
+
   -- colorscheme
   use "ellisonleao/gruvbox.nvim"
-  use "folke/tokyonight.nvim"
 
   -- statusline
   use {

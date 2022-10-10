@@ -38,6 +38,7 @@ o.updatetime = 500
 o.splitbelow = true
 o.splitright = true
 o.shell = "zsh"
+o.list = true
 
 -- remove whitespace on save
 cmd([[au BufWritePre * :%s/\s\+$//e]])

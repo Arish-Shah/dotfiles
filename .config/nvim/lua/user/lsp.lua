@@ -23,10 +23,10 @@ local opts = { noremap=true, silent=true }
 
 local map = vim.keymap.set
 
-map("n", "<space>i", vim.diagnostic.open_float, opts)
+map("n", "<leader>i", vim.diagnostic.open_float, opts)
 map("n", "[d", vim.diagnostic.goto_prev, opts)
 map("n", "]d", vim.diagnostic.goto_next, opts)
-map("n", "<space>q", vim.diagnostic.setloclist, opts)
+map("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -39,16 +39,16 @@ local on_attach = function(client, bufnr)
   map("n", "K", vim.lsp.buf.hover, bufopts)
   map("n", "gi", vim.lsp.buf.implementation, bufopts)
   map("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-  map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-  map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-  map("n", "<space>wl", function()
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+  map("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-  map("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-  map("n", "<space>rn", vim.lsp.buf.rename, bufopts)
-  map("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
+  map("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
+  map("n", "<leader>r", vim.lsp.buf.rename, bufopts)
+  map("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
   map("n", "gr", vim.lsp.buf.references, bufopts)
-  map("n", "<space>f", function() vim.lsp.buf.format { async = true } end, bufopts)
+  map("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, bufopts)
 
   -- disable language server's formatting capabilities
   for _, lsp in ipairs(servers) do

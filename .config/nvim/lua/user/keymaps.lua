@@ -31,4 +31,4 @@ map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- nvim tree
-map("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
+map("n", "<C-h>", ":NvimTreeToggle<cr>", opts)

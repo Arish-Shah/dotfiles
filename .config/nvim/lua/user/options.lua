@@ -1,9 +1,6 @@
 local o = vim.opt
-local g = vim.g
+-- local g = vim.g
 local cmd = vim.cmd
-
-g.loaded = 1
-g.loaded_netrwPlugin = 1
 
 o.number = true
 o.relativenumber = false
@@ -15,7 +12,6 @@ o.tabstop = 2
 o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
-o.smartindent = true
 o.smartindent = true
 o.autoindent = true
 o.scrolloff = 8
@@ -29,18 +25,14 @@ o.showmode = false
 o.signcolumn = "yes"
 o.cursorline = true
 o.wrap = false
-o.background = "dark"
 o.autoread = true
 o.completeopt = { "menu", "menuone", "noselect" }
-o.clipboard = o.clipboard + "unnamedplus"
 o.showmatch = false
 o.updatetime = 500
 o.splitbelow = true
 o.splitright = true
 o.shell = "zsh"
-o.list = true
+o.background = "dark"
 
--- remove whitespace on save
-cmd([[au BufWritePre * :%s/\s\+$//e]])
+-- get out of comment
 cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
-

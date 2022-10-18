@@ -4,9 +4,9 @@ if not status_ok then
   return
 end
 
-configs.setup {
-  ensure_installed = { "javascript", "typescript", "tsx" },
+configs.setup({
+  ensure_installed = { "lua" },
   highlight = {
     enable = true
   }
-}
+})

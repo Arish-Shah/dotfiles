@@ -9,7 +9,7 @@ local ensure_packer = function()
   return false
 end
 
--- run PackerSync on file save
+-- run PackerSync on save
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -28,24 +28,20 @@ end
 return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
-  -- lsp
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  use "neovim/nvim-lspconfig"
-
-  -- cmp
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "saadparwaiz1/cmp_luasnip"
-  use "L3MON4D3/LuaSnip"
-
-  -- formatter
   use {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" }
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   }
 
-  -- better syntax highlight through treesitter
+  use {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "saadparwaiz1/cmp_luasnip",
+    "L3MON4D3/LuaSnip"
+  }
+
+
   use {
     "nvim-treesitter/nvim-treesitter",
     run = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
@@ -53,34 +49,20 @@ return packer.startup(function(use)
 
   use {
     "nvim-telescope/telescope.nvim", tag = "0.1.0",
-    -- or                            , branch = "0.1.x",
-    requires = { {"nvim-lua/plenary.nvim"} }
+    requires = {"nvim-lua/plenary.nvim"}
   }
 
   use {
     "nvim-tree/nvim-tree.lua",
-    requires = {
-      "nvim-tree/nvim-web-devicons", -- optional, for file icons
-    },
-    tag = "nightly" -- optional, updated every week. (see issue #1193)
+    requires = { "nvim-tree/nvim-web-devicons" }
   }
 
-  -- git signs
-  use "lewis6991/gitsigns.nvim"
-
-  -- comments
-  use "numToStr/Comment.nvim"
-
-  -- match bracket pairs
   use "windwp/nvim-autopairs"
 
-  -- indent
-  use "lukas-reineke/indent-blankline.nvim"
+  use "folke/tokyonight.nvim"
 
-  -- colorscheme
   use "ellisonleao/gruvbox.nvim"
 
-  -- statusline
   use {
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true }

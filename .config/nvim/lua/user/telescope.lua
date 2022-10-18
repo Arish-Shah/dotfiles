@@ -1,14 +1,16 @@
 local opts = { noremap=true, silent=true }
 local map = vim.keymap.set
 
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
+local status_ok_1, telescope = pcall(require, "telescope")
+if not status_ok_1 then
   vim.notify("telescope not found!")
+  return
 end
 
-local status_ok, builtin = pcall(require, "telescope.builtin")
-if not status_ok then
+local status_ok_2, builtin = pcall(require, "telescope.builtin")
+if not status_ok_2 then
   vim.notify("telescope.builtin not found!")
+  return
 end
 
 telescope.setup({

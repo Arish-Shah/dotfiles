@@ -3,7 +3,7 @@ local o = vim.opt
 local cmd = vim.cmd
 
 o.number = true
-o.relativenumber = false
+o.relativenumber = true
 o.mouse = "a"
 o.hidden = true
 o.swapfile = false
@@ -22,7 +22,7 @@ o.ignorecase = true
 o.hlsearch = false
 o.termguicolors = true
 o.showmode = false
-o.signcolumn = "yes"
+o.signcolumn = "number"
 o.cursorline = true
 o.wrap = false
 o.autoread = true

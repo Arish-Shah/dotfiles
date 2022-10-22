@@ -4,8 +4,10 @@ if not status_ok then
   return
 end
 
+local languages = { "lua", "typescript" }
+
 configs.setup({
-  ensure_installed = { "lua" },
+  ensure_installed = languages,
   highlight = {
     enable = true
   }

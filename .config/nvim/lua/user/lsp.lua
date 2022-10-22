@@ -73,10 +73,10 @@ lspconfig.sumneko_lua.setup({
         globals = { "vim" }
       }
     }
-  }
+  },
 })
 
 lspconfig.tsserver.setup({
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 })

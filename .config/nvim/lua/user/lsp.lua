@@ -23,7 +23,7 @@ if not status_ok_4 then
   return
 end
 
-local servers = { "sumneko_lua", "tsserver" }
+local servers = { "sumneko_lua" }
 
 mason.setup()
 mason_lspconfig.setup({

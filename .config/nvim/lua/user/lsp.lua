@@ -23,7 +23,7 @@ if not status_ok_4 then
   return
 end
 
-local servers = { "sumneko_lua" }
+local servers = { "sumneko_lua", "pyright" }
 
 mason.setup()
 mason_lspconfig.setup({
@@ -75,8 +75,13 @@ lspconfig.sumneko_lua.setup({
     }
   },
 })
+-- 
+-- lspconfig.tsserver.setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- })
 
-lspconfig.tsserver.setup({
+lspconfig.pyright.setup({
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 })

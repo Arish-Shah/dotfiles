@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-local languages = { "lua" }
+local languages = { "lua", "python" }
 
 configs.setup({
   ensure_installed = languages,

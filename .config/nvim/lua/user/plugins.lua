@@ -63,7 +63,7 @@ return packer.startup(function(use)
 
   use "windwp/nvim-autopairs"
 
-  use "ellisonleao/gruvbox.nvim"
+  use "folke/tokyonight.nvim"
 
   use {
     "nvim-lualine/lualine.nvim",

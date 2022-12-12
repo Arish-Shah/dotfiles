@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sel="$(find $HOME/Development -mindepth 1 -maxdepth 3 -type d -not -path '*/.*' | fzf)"
+
+if ! [ -z "$sel" ]; then
+		tag="$(basename $sel)"
+		tmux new-session -A -s $tag -c $sel
+fi

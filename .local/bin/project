@@ -1,8 +1,21 @@
 #!/bin/sh
 
-sel="$(find $HOME/Development -mindepth 1 -maxdepth 3 -type d -not -path '*/.*' | fzf)"
+selected="$(find ~/Development -mindepth 1 -maxdepth 1 -type d -not -path '*/.*' | fzf)"
 
-if ! [ -z "$sel" ]; then
-	tag="$(basename $sel)"
-	tmux new-session -A -s $tag -c $sel
+if [ -z $selected ]; then
+    exit 0
 fi
+
+tag="$(basename $selected)"
+tmux_running="$(pgrep tmux)"
+
+if [ -z $TMUX ] && [ -z $tmux_running ]; then
+	tmux new-session -s $tag -c $selected
+	exit 0
+fi
+
+if ! tmux has-session -t=$tag 2> /dev/null; then
+	tmux new-session -ds $tag -c $selected
+fi
+
+tmux switch-client -t $tag

@@ -1,1 +1,1 @@
-vim.g.copilot_filtypes = { ["*"] = false, python = true }
+vim.g.copilot_filetypes = { ["*"] = false, python = true }

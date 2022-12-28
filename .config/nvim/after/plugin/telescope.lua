@@ -4,8 +4,8 @@ if not ok then
   return
 end
 
-local ok, builtin = pcall(require, "telescope.builtin")
-if not ok then
+local ok2, builtin = pcall(require, "telescope.builtin")
+if not ok2 then
   vim.notify("telescope.builtin not installed!")
   return
 end

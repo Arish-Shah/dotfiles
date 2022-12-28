@@ -4,8 +4,8 @@ if not ok then
   return
 end
 
-local ok, cmp = pcall(require, "cmp")
-if not ok then
+local ok2, cmp = pcall(require, "cmp")
+if not ok2 then
   vim.notify("cmp not installed!")
   return
 end
@@ -13,8 +13,18 @@ end
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-  "pyright",
+  "sumneko_lua",
   "tsserver"
+})
+
+lsp.configure("sumneko_lua", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
 })
 
 local cmp_mappings = lsp.defaults.cmp_mappings({

@@ -1,4 +1,4 @@
-local languages = { "help", "lua" }
+local languages = { "lua", "typescript" }
 
 local ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if not ok then

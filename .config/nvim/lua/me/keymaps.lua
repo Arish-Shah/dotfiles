@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- normal
+vim.keymap.set({ "n", "v" }, "<space>", "<Nop>", { silent = true })
+
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")

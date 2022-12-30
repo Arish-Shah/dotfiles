@@ -54,13 +54,14 @@ end
 
 local servers = {
   pyright = {},
+  tsserver = {},
   sumneko_lua = {
     Lua = {
       diagnostics = {
         globals = { "vim" },
       },
     },
-  }
+  },
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

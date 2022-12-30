@@ -17,6 +17,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.background = "dark"
 vim.opt.scrolloff = 8
+vim.opt.showmode = false
 
 vim.opt.updatetime = 50
 

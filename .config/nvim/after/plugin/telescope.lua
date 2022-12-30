@@ -1,19 +1,14 @@
 local ok, telescope = pcall(require, "telescope")
 if not ok then
-  vim.notify("telescope not installed!")
-  return
-end
-
-local ok2, builtin = pcall(require, "telescope.builtin")
-if not ok2 then
-  vim.notify("telescope.builtin not installed!")
+  vim.notify("telescope not found!")
   return
 end
 
 telescope.setup({
   defaults = {
     file_ignore_patterns = {"node_modules"},
-  },
+  }
 })
 
+local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files)

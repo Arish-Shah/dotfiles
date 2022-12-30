@@ -1,17 +1,9 @@
-local languages = { "lua", "typescript" }
-
 local ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if not ok then
-  vim.notify("treesitter not installed!")
+  vim.notify("nvim-treesitter not found!")
   return
 end
 
 treesitter.setup({
-  ensure_installed = languages,
-  highlight = {
-    enable = true
-  },
-  indent = {
-    enable = true
-  }
+  ensure_installed = { "lua", "python" },
 })

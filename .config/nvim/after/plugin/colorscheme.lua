@@ -1,4 +1,4 @@
-local name = "tokyonight"
+local name = "rose-pine"
 
 local ok, colorscheme = pcall(require, name)
 if not ok then
@@ -8,11 +8,6 @@ end
 
 colorscheme.setup({
   disable_italics = true,
-  italic = false,
-  styles = {
-    comments = { italic = false },
-    keywords = { italic = false },
-  }
 })
 
-vim.cmd.colorscheme(name .. "-night")
+vim.cmd.colorscheme(name)

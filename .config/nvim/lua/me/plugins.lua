@@ -52,6 +52,7 @@ return require("packer").startup(function(use)
   use("github/copilot.vim")
 
   use("rose-pine/neovim")
+  use("nvim-tree/nvim-tree.lua")
   use("nvim-lualine/lualine.nvim")
   use("numToStr/Comment.nvim")
   use("tpope/vim-sleuth")

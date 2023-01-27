@@ -50,29 +50,6 @@ tree.setup({
       quit_on_open = false
     },
   },
-  renderer = {
-    icons = {
-      show = {
-        file = false,
-        folder = true,
-        folder_arrow = false,
-        git = false,
-        modified = false,
-      },
-      glyphs = {
-        folder = {
-          arrow_open = "▾",
-          arrow_closed = "▸",
-          default = "▸",
-          open = "▾",
-          empty = "▸",
-          empty_open = "▾",
-          symlink = "▸",
-          symlink_open = "▾"
-        }
-      },
-    }
-  },
 })
 
 vim.keymap.set("n", "<C-h>", ":NvimTreeToggle<cr>")

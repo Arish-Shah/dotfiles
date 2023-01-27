@@ -47,7 +47,8 @@ return require("packer").startup(function(use)
     end,
   })
 
-  use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { { "nvim-lua/plenary.nvim" } } })
+  use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
+  use("nvim-lua/plenary.nvim")
 
   use("github/copilot.vim")
 
@@ -58,6 +59,8 @@ return require("packer").startup(function(use)
   use("tpope/vim-sleuth")
   use("windwp/nvim-autopairs")
   use("lewis6991/gitsigns.nvim")
+
+  use("nvim-tree/nvim-web-devicons")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

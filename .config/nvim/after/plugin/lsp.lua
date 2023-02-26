@@ -55,7 +55,7 @@ end
 local servers = {
   pyright = {},
   tsserver = {},
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       diagnostics = {
         globals = { "vim" },

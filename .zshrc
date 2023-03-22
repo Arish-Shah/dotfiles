@@ -14,6 +14,7 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias ls="exa --icons --color=auto -lah --group-directories-first"
 alias vc="cd $XDG_CONFIG_HOME/nvim && vi init.lua"
+alias up="sudo apt update; sudo apt upgrade"
 
 # shortcuts
 bindkey -s "^f" "tmux_project^M"

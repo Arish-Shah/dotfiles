@@ -17,4 +17,4 @@ alias vc="cd $XDG_CONFIG_HOME/nvim && vi init.lua"
 alias up="sudo apt update; sudo apt upgrade"
 
 # shortcuts
-bindkey -s "^f" "tmux_project^M"
+bindkey -s "^f" "code_project^M"

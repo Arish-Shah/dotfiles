@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+selected="$(find ~/dev -mindepth 1 -maxdepth 1 -type d -not -path '*/.*' | fzf)"
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+code $selected

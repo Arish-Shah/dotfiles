@@ -1,14 +1,8 @@
-local ok, lualine = pcall(require, "lualine")
-if not ok then
-  vim.notify("lualine not installed!")
-  return
-end
-
-lualine.setup({
+require("lualine").setup({
   options = {
-    theme = "auto",
-    component_separators = "|",
-    section_separators = "",
+    icons_enabled = false,
     globalstatus = true,
+    component_separators = '|',
+    section_separators = '',
   },
 })

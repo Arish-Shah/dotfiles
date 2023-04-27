@@ -1,34 +1,3 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then
-  vim.notify("lspconfig not installed!")
-  return
-end
-
-local ok2, mason = pcall(require, "mason")
-if not ok2 then
-  vim.notify("mason not installed!")
-  return
-end
-
-local ok3, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not ok3 then
-  vim.notify("mason-lspconfig not installed!")
-  return
-end
-
-local ok4, fidget = pcall(require, "fidget")
-if not ok4 then
-  vim.notify("fidget not installed!")
-  return
-end
-
-local ok5, cmp = pcall(require, "cmp_nvim_lsp")
-if not ok5 then
-  vim.notify("cmp not installed!")
-  return
-end
-
--- config
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
@@ -59,28 +28,27 @@ local servers = {
     Lua = {
       diagnostics = {
         globals = { "vim" },
+        telemetry = { enable = false },
       },
-    },
-  },
+    }
+  }
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp.default_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-mason.setup()
+local mason_lspconfig = require("mason-lspconfig")
 
-mason_lspconfig.setup({
+mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
-})
+}
 
-mason_lspconfig.setup_handlers({
+mason_lspconfig.setup_handlers {
   function(server_name)
-    lspconfig[server_name].setup({
+    require("lspconfig")[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
-    })
+    }
   end,
-})
-
-fidget.setup()
+}

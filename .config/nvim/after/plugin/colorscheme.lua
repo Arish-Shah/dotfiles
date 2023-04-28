@@ -1,3 +1,8 @@
-vim.g.nightflyItalics = false
+require("tokyonight").setup({
+  styles = {
+    comments = { italic = false },
+    keywords = { italic = false },
+  },
+})
 
-vim.cmd("colorscheme nightfly")
+vim.cmd("colorscheme tokyonight-night")

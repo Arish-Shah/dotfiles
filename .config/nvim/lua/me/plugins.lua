@@ -29,7 +29,7 @@ require("lazy").setup({
     dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
   },
 
-  "rose-pine/neovim",
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
   "nvim-lualine/lualine.nvim",
 
   { "windwp/nvim-autopairs", opts = {} },

@@ -1,5 +1,3 @@
-require("rose-pine").setup({
-  disable_italics = true,
-})
+vim.g.nightflyItalics = false
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme nightfly")

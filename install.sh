@@ -36,7 +36,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x ~/.local/bin/nvim.appimage
 
-# install node.js using nvm
+# install node.js using nvm (using zsh)
 /usr/bin/zsh -i -c "nvm install --lts"
 
 # change user shell to zsh
@@ -45,8 +45,8 @@ sudo chsh -s /usr/bin/zsh $USER
 # remove garbago files
 rm .bash* .motd_shown .profile .sudo_as_admin_successful .wget-hsts
 
-# remove bash_history file
-/usr/bin/zsh -i -c "rm ~/.bash_history"
+# clear history
+history -c
 
 # login to gh
 # open vim once

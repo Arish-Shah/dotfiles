@@ -34,5 +34,12 @@ require("lazy").setup({
   { "windwp/nvim-autopairs", opts = {} },
   { "numToStr/Comment.nvim", opts = {} },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "nvim-telescope/telescope.nvim",
+    version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    }
+  },
 }, {})

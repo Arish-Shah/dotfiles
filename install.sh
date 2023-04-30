@@ -17,16 +17,16 @@ cd dev
 git clone https://github.com/Arish-Shah/dotfiles --depth=1
 cd
 
+# install oh-my-zsh
+export ZSH="$HOME/.local/share/oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # copy dotfiles
-cp ~/dev/dotfiles/*.zsh ~
+cp ~/dev/dotfiles/.zsh* ~
 cp ~/dev/dotfiles/.tmux.conf ~
 cp ~/dev/dotfiles/.config/npm ~/.config -r
 cp ~/dev/dotfiles/.config/nvim ~/.config -r
 cp ~/dev/dotfiles/.local/bin ~/.local -r
-
-# install oh-my-zsh
-export ZSH="$HOME/.local/share/oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # configure git
 git config --global init.defaultBranch main

@@ -37,8 +37,7 @@ wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/
 chmod +x ~/.local/bin/nvim.appimage
 
 # install node.js using nvm
-source ~/.bashrc
-nvm install --lts
+/usr/bin/zsh -i -c "nvm install --lts"
 
 # change user shell to zsh
 sudo chsh -s /usr/bin/zsh $USER

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# prevent .bash_history creation
+export HISTFILE="/dev/null"
+
 # remove vim, update system, install dependencies
 sudo apt autoremove --purge vim -y
 sudo apt update && sudo apt upgrade -y
@@ -48,5 +51,4 @@ rm .bash* .motd_shown .profile .sudo_as_admin_successful .wget-hsts
 # clear history
 history -c
 
-# login to gh
-# open vim once
+echo -e "\n\nclose this tab\nopen neovim\ngh auth login\n\n"

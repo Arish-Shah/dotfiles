@@ -45,5 +45,8 @@ sudo chsh -s /usr/bin/zsh $USER
 # remove garbago files
 rm .bash* .motd_shown .profile .sudo_as_admin_successful .wget-hsts
 
+# remove bash_history file
+/usr/bin/zsh -i -c "rm ~/.bash_history"
+
 # login to gh
 # open vim once

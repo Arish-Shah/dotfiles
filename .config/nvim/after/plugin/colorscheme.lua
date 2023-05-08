@@ -1,8 +1,5 @@
-require("tokyonight").setup({
-  styles = {
-    comments = { italic = false },
-    keywords = { italic = false },
-  },
+require("rose-pine").setup({
+  disable_italics = true,
 })
 
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme rose-pine")

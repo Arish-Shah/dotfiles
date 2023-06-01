@@ -9,7 +9,7 @@ sudo apt install fzf exa zsh build-essential gh ripgrep libfuse2 --no-install-su
 mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,dev}
 
 # clone dotfiles
-git clone https://github.com/Arish-Shah/dotfiles --depth=1 ~/dev/dotfiles
+git clone https://github.com/Arish-Shah/dotfiles ~/dev/dotfiles
 
 # install oh-my-zsh
 export ZSH="$HOME/.local/share/oh-my-zsh"

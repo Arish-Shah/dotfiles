@@ -14,8 +14,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>")
 
-vim.keymap.set("n", "<C-h>", vim.cmd.Ex)
-
 vim.keymap.set("n", "<leader>cq", "<cmd>%s/\'/\"/g<CR>")
 
 -- visual

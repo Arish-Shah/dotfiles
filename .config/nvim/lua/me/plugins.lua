@@ -30,7 +30,7 @@ require("lazy").setup({
 
   { "rose-pine/neovim",                name = "rose-pine" },
   "nvim-lualine/lualine.nvim",
-
+  "nvim-tree/nvim-tree.lua",
   { "windwp/nvim-autopairs",           opts = {} },
   { "numToStr/Comment.nvim",           opts = {} },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },

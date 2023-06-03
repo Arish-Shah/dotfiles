@@ -28,11 +28,11 @@ require("lazy").setup({
     dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
   },
 
-  { "rose-pine/neovim", name = "rose-pine" },
+  { "rose-pine/neovim",                name = "rose-pine" },
   "nvim-lualine/lualine.nvim",
 
-  { "windwp/nvim-autopairs", opts = {} },
-  { "numToStr/Comment.nvim", opts = {} },
+  { "windwp/nvim-autopairs",           opts = {} },
+  { "numToStr/Comment.nvim",           opts = {} },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     "nvim-telescope/telescope.nvim",

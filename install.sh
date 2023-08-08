@@ -27,17 +27,12 @@ git config --global init.defaultBranch main
 git config --global user.name "Arish-Shah"
 git config --global user.email "arish.r.shah@gmail.com"
 
-# install node version manager
-export NVM_DIR="$HOME/.local/share/nvm"
-mkdir $NVM_DIR
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# install fnm
+curl -fsSL https://fnm.vercel.app/install | bash --install-dir ~/.local/share/fnm
 
 # download neovim
 wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod +x ~/.local/bin/nvim.appimage
-
-# install node.js using nvm (using zsh)
-/usr/bin/zsh -i -c "nvm install --lts"
 
 # change user shell to zsh
 sudo chsh -s /usr/bin/zsh $USER

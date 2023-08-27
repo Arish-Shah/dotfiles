@@ -3,7 +3,7 @@
 # remove vim, update system, install dependencies
 sudo apt autoremove --purge vim -y
 sudo apt update && sudo apt upgrade -y
-sudo apt install fzf exa zsh build-essential gh ripgrep libfuse2 --no-install-suggests --no-install-recommends -y
+sudo apt install unzip fzf exa zsh build-essential gh ripgrep libfuse2 --no-install-suggests --no-install-recommends -y
 
 # make directories
 mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,dev}
@@ -28,7 +28,7 @@ git config --global user.name "Arish-Shah"
 git config --global user.email "arish.r.shah@gmail.com"
 
 # install fnm
-curl -fsSL https://fnm.vercel.app/install | bash --install-dir ~/.local/share/fnm
+curl -fsSL https://fnm.vercel.app/install | bash --install-dir $HOME/.local/share/fnm
 
 # download neovim
 wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/nvim.appimage

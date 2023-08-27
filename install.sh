@@ -28,7 +28,8 @@ git config --global user.name "Arish-Shah"
 git config --global user.email "arish.r.shah@gmail.com"
 
 # install fnm
-curl -fsSL https://fnm.vercel.app/install | bash --install-dir $HOME/.local/share/fnm
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$HOME/.local/bin" --skip-shell
+/usr/bin/zsh -i -c "fnm install --lts"
 
 # download neovim
 wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/nvim.appimage

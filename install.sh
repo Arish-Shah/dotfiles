@@ -3,7 +3,7 @@
 # remove vim, update system, install dependencies
 sudo apt autoremove --purge vim -y
 sudo apt update && sudo apt upgrade -y
-sudo apt install unzip fzf exa zsh build-essential gh ripgrep libfuse2 --no-install-suggests --no-install-recommends -y
+sudo apt install curl tmux git unzip fzf exa zsh build-essential gh ripgrep libfuse2 --no-install-suggests --no-install-recommends -y
 
 # make directories
 mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,dev}

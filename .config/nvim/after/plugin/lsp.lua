@@ -22,8 +22,6 @@ local on_attach = function()
 end
 
 local servers = {
-  pyright = {},
-  tsserver = {},
   lua_ls = {
     Lua = {
       diagnostics = {

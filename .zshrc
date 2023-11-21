@@ -3,10 +3,11 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 export ZSH_THEME="robbyrussell"
 
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 export VI_MODE_SET_CURSOR=true
 export KEYTIMEOUT=1
 
-plugins=(git vi-mode)
+plugins=(git nvm vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,6 +19,3 @@ alias up="sudo apt update; sudo apt upgrade"
 
 # shortcuts
 bindkey -s "^f" "tmux_sessionizer^M"
-
-# fnm
-eval "$(fnm env --use-on-cd)"

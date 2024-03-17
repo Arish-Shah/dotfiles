@@ -30,7 +30,7 @@ git config --global user.email "arish.r.shah@gmail.com"
 # install nvm
 export NVM_DIR="$HOME/.local/share/nvm"
 mkdir $NVM_DIR
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 # download neovim
 wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/nvim.appimage

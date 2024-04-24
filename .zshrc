@@ -12,7 +12,7 @@ plugins=(git nvm vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # aliases
-alias ls="exa --icons --color=auto -lah --group-directories-first"
+alias ls="ls -lah --color=auto --group-directories-first"
 alias vi="nvim.appimage"
 alias vc="cd $XDG_CONFIG_HOME/nvim && vi init.lua"
 alias up="sudo apt update; sudo apt upgrade"

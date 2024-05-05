@@ -16,6 +16,7 @@ alias ls="ls -lah --color=auto --group-directories-first"
 alias vi="nvim.appimage"
 alias vc="cd $XDG_CONFIG_HOME/nvim && vi init.lua"
 alias up="sudo apt update; sudo apt upgrade"
+alias in="sudo apt install --no-install-recommends --no-install-suggests"
 
 # shortcuts
 bindkey -s "^f" "tmux_sessionizer^M"

@@ -6,21 +6,21 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install curl tmux git unzip fzf zsh build-essential gh ripgrep libfuse2 python3-venv --no-install-suggests --no-install-recommends -y
 
 # make directories
-mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,dev}
+mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,Programming}
 
 # clone dotfiles
-git clone https://github.com/Arish-Shah/dotfiles ~/dev/dotfiles
+git clone https://github.com/Arish-Shah/dotfiles ~/Programming/dotfiles
 
 # install oh-my-zsh
 export ZSH="$HOME/.local/share/oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # copy all my dotfiles
-cp ~/dev/dotfiles/.zsh* ~
-cp ~/dev/dotfiles/.tmux.conf ~
-cp ~/dev/dotfiles/.config/npm ~/.config -r
-cp ~/dev/dotfiles/.config/nvim ~/.config -r
-cp ~/dev/dotfiles/.local/bin ~/.local -r
+cp ~/Programming/dotfiles/.zsh* ~
+cp ~/Programming/dotfiles/.tmux.conf ~
+cp ~/Programming/dotfiles/.config/npm ~/.config -r
+cp ~/Programming/dotfiles/.config/nvim ~/.config -r
+cp ~/Programming/dotfiles/.local/bin ~/.local -r
 
 # configure git
 git config --global init.defaultBranch main

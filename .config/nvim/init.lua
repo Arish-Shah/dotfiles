@@ -209,6 +209,12 @@ require("lazy").setup({
     },
   },
 
+  { -- autopairs
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+  },
+
   { -- file explorer
     "nvim-tree/nvim-tree.lua",
     version = "*",

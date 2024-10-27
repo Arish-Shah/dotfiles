@@ -185,16 +185,10 @@ require("lazy").setup({
         },
         completion = { completeopt = "menu,menuone,noinsert" },
         mapping = cmp.mapping.preset.insert {
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<CR>"] = cmp.mapping.confirm { select = true },
           ["<C-Space>"] = cmp.mapping.complete {},
         },
         sources = {
-          {
-            name = "lazydev",
-            group_index = 0,
-          },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "path" },

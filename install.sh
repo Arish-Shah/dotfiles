@@ -3,7 +3,7 @@
 # remove vim, update system, install dependencies
 sudo apt autoremove --purge vim -y
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl tmux git unzip fzf zsh build-essential gh ripgrep libfuse2 python3-venv --no-install-suggests --no-install-recommends -y
+sudo apt install curl tmux git unzip fzf zsh build-essential gh neovim ripgrep python3-venv --no-install-suggests --no-install-recommends -y
 
 # make directories
 mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,Programming}
@@ -31,10 +31,6 @@ git config --global user.email "arish.r.shah@gmail.com"
 export NVM_DIR="$HOME/.local/share/nvm"
 mkdir $NVM_DIR
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-
-# download neovim
-wget -P ~/.local/bin/ https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod +x ~/.local/bin/nvim.appimage
 
 # install node.js
 /usr/bin/zsh -i -c "nvm install --lts"

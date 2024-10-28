@@ -2,7 +2,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-vim.g.netrw_banner = false
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- options
 vim.opt.number = true
@@ -32,7 +33,6 @@ vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
-vim.keymap.set("n", "<C-h>", "<cmd>Explore<CR>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>")
 
 vim.keymap.set("v", "<", "<gv")
@@ -217,5 +217,54 @@ require("lazy").setup({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
+  },
+
+  { -- file explorer
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup {
+        on_attach = function(bufnr)
+          local api = require "nvim-tree.api"
+
+          local function opts()
+            return { buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+
+          -- default mappings
+          api.config.mappings.default_on_attach(bufnr)
+
+          -- custom mappings
+          local function edit_or_open()
+            local node = api.tree.get_node_under_cursor()
+            if node.nodes ~= nil then
+              api.node.open.edit()
+            else
+              api.node.open.edit()
+              api.tree.close()
+            end
+          end
+
+          local function vsplit_preview()
+            local node = api.tree.get_node_under_cursor()
+            if node.nodes ~= nil then
+              api.node.open.edit()
+            else
+              api.node.open.vertical()
+            end
+            api.tree.focus()
+          end
+
+          vim.keymap.set("n", "l", edit_or_open, opts())
+          vim.keymap.set("n", "L", vsplit_preview, opts())
+          vim.keymap.set("n", "h", api.tree.close, opts())
+          vim.keymap.set("n", "H", api.tree.collapse_all, opts())
+        end,
+      }
+
+      vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
+    end,
   },
 })

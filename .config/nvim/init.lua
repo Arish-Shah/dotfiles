@@ -194,6 +194,11 @@ require("lazy").setup({
     config = true,
   },
 
+  { -- comments
+    "numToStr/Comment.nvim",
+    opts = {}
+  },
+
   { -- file explorer
     "nvim-tree/nvim-tree.lua",
     version = "*",

@@ -206,6 +206,10 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup {
+        view = {
+          number = true,
+          relativenumber = true,
+        },
         on_attach = function(bufnr)
           local api = require "nvim-tree.api"
 

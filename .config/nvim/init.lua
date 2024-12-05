@@ -24,6 +24,7 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
+vim.opt.colorcolumn = "80"
 
 -- basic keymaps
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -112,6 +113,7 @@ require("lazy").setup({
             vim.keymap.set(mode, keys, func, { buffer = event.buf })
           end
 
+          map("K", vim.lsp.buf.hover)
           map("gd", require("telescope.builtin").lsp_definitions)
           map("gr", require("telescope.builtin").lsp_references)
           map("gi", require("telescope.builtin").lsp_implementations)
@@ -119,6 +121,7 @@ require("lazy").setup({
           map("<leader>rn", vim.lsp.buf.rename)
           map("<leader>ca", vim.lsp.buf.code_action, { "n", "x" })
           map("gD", vim.lsp.buf.declaration)
+          map("<leader>f", function() vim.lsp.buf.format { async = true } end)
         end,
       })
 

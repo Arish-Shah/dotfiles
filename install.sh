@@ -35,9 +35,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 # install node.js
 /usr/bin/zsh -i -c "nvm install --lts"
 
-# install pnpm
-curl -fsSL https://get.pnpm.io/install.sh | sh -
-
 # change user shell to zsh
 sudo chsh -s /usr/bin/zsh $USER
 

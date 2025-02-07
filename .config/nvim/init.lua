@@ -90,6 +90,7 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
+        icons_enabled = vim.g.have_nerd_font,
         globalstatus = true,
         component_separators = "|",
         section_separators = "",

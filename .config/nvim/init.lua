@@ -1,7 +1,7 @@
 -- global editor
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -219,7 +219,6 @@ require("lazy").setup({
               file = vim.g.have_nerd_font,
               folder = vim.g.have_nerd_font,
               folder_arrow = vim.g.have_nerd_font,
-              git = vim.g.have_nerd_font,
             },
           },
         },

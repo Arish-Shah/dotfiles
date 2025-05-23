@@ -2,6 +2,7 @@
 
 # remove vim, update system, install dependencies
 sudo apt autoremove --purge vim -y
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl tmux git unzip fzf zsh build-essential gh neovim ripgrep python3-venv --no-install-suggests --no-install-recommends -y
 

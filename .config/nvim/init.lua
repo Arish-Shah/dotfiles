@@ -74,7 +74,7 @@ require("lazy").setup({
   { -- fuzzy finder
     "nvim-telescope/telescope.nvim",
     event = "VimEnter",
-    branch = "0.1.x",
+    branch = "master",
      dependencies = {
       "nvim-lua/plenary.nvim",
       { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -188,11 +188,15 @@ require("lazy").setup({
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
     opts = {
-      ensure_installed = { "html", "javascript", "lua", "python", "typescript" },
+      ensure_installed = { "html", "javascript", "lua", "python" },
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },
     },
+  },
+
+  { -- show code context
+    "nvim-treesitter/nvim-treesitter-context",
   },
 
   { -- autopairs

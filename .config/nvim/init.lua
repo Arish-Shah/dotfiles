@@ -65,6 +65,9 @@ require("lazy").setup({
       styles = {
         italic = false,
       },
+      highlight_groups = {
+        Visual = { reverse = true },
+      },
     },
     init = function()
       vim.cmd.colorscheme "rose-pine"
@@ -186,7 +189,7 @@ require("lazy").setup({
   { -- highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
+    main = "nvim-treesitter.config",
     opts = {
       ensure_installed = { "html", "javascript", "lua", "python" },
       sync_install = true,

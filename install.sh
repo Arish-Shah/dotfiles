@@ -3,7 +3,7 @@
 # remove vim, update system, install dependencies
 sudo apt autoremove --purge vim snapd -y
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl tmux git fzf zsh gh ripgrep --no-install-suggests --no-install-recommends -y
+sudo apt install build-essential curl tmux git fzf zsh gh ripgrep --no-install-suggests --no-install-recommends -y
 
 # make directories
 mkdir -p ./{.local/{share,state/zsh},.cache/zsh,.config,Programming}

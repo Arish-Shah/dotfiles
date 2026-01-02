@@ -188,10 +188,11 @@ require("lazy").setup({
 
   { -- highlight, edit, and navigate code
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
     build = ":TSUpdate",
-    main = "nvim-treesitter.config",
+    main = "nvim-treesitter.configs",
     opts = {
-      ensure_installed = { "html", "javascript", "lua", "python" },
+      ensure_installed = { "html", "javascript", "python" },
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },

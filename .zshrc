@@ -7,9 +7,10 @@ ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 export ZSH="$XDG_DATA_HOME/oh-my-zsh"
 
+zstyle ":omz:plugins:nvm" lazy yes
+
 # oh-my-zsh setup
 ZSH_THEME="robbyrussell"
-
 VI_MODE_SET_CURSOR=true
 KEYTIMEOUT=5
 plugins=(git nvm vi-mode)

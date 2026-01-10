@@ -267,8 +267,7 @@ require("lazy").setup({
 
           vim.keymap.set("n", "l", edit_or_open, opts())
           vim.keymap.set("n", "L", vsplit_preview, opts())
-          vim.keymap.set("n", "h", api.tree.close, opts())
-          vim.keymap.set("n", "H", api.tree.collapse_all, opts())
+          vim.keymap.set("n", "h", api.node.navigate.parent_close, opts())
         end,
       }
 

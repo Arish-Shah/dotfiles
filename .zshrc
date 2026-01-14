@@ -18,4 +18,4 @@ plugins=(git nvm vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # aliases & bindings
-bindkey -s "^f" "tmux_sessionizer^M"
+bindkey -s "^f" "sessionizer^M"

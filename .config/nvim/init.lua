@@ -2,8 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 50
 
 -- options
 vim.opt.number = true
@@ -27,6 +28,7 @@ vim.opt.scrolloff = 10
 vim.opt.colorcolumn = "80"
 
 -- basic keymaps
+vim.keymap.set("n", "<C-h>", vim.cmd.Ex)
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>h", "<C-w>h")
@@ -34,7 +36,7 @@ vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww sessionizer<CR>")
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
@@ -212,66 +214,5 @@ require("lazy").setup({
   { -- comments
     "numToStr/Comment.nvim",
     opts = {}
-  },
-
-  { -- file explorer
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("nvim-tree").setup {
-        view = {
-          number = true,
-          relativenumber = true,
-        },
-        renderer = {
-          icons = {
-            show = {
-              file = vim.g.have_nerd_font,
-              folder = vim.g.have_nerd_font,
-              folder_arrow = vim.g.have_nerd_font,
-            },
-          },
-        },
-        on_attach = function(bufnr)
-          local api = require "nvim-tree.api"
-
-          local function opts()
-            return { buffer = bufnr, noremap = true, silent = true, nowait = true }
-          end
-
-          -- default mappings
-          api.config.mappings.default_on_attach(bufnr)
-
-          -- custom mappings
-          local function edit_or_open()
-            local node = api.tree.get_node_under_cursor()
-            if node.nodes ~= nil then
-              api.node.open.edit()
-            else
-              api.node.open.edit()
-              api.tree.close()
-            end
-          end
-
-          local function vsplit_preview()
-            local node = api.tree.get_node_under_cursor()
-            if node.nodes ~= nil then
-              api.node.open.edit()
-            else
-              api.node.open.vertical()
-            end
-            api.tree.focus()
-          end
-
-          vim.keymap.set("n", "l", edit_or_open, opts())
-          vim.keymap.set("n", "L", vsplit_preview, opts())
-          vim.keymap.set("n", "h", api.node.navigate.parent_close, opts())
-        end,
-      }
-
-      vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
-    end,
   },
 })

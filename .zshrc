@@ -13,7 +13,8 @@ zstyle ":omz:plugins:nvm" lazy yes
 ZSH_THEME="robbyrussell"
 VI_MODE_SET_CURSOR=true
 KEYTIMEOUT=5
-plugins=(git nvm vi-mode)
+ZSH_TMUX_AUTOSTART=true
+plugins=(git nvm tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

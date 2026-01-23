@@ -15,7 +15,7 @@ mkdir -p "$HOME"/Programming
 
 # clone dotfiles
 if [ ! -d "$HOME/Programming/dotfiles" ]; then
-    git clone --depth 1 https://github.com/Arish-Shah/dotfiles "$HOME/Programming/dotfiles"
+    git clone https://github.com/Arish-Shah/dotfiles "$HOME/Programming/dotfiles"
 fi
 
 # install oh-my-zsh
@@ -27,12 +27,8 @@ cp "$HOME/Programming/dotfiles/.zsh"* "$HOME/"
 cp -r "$HOME/Programming/dotfiles/.config/"* "$HOME/.config/"
 cp -r "$HOME/Programming/dotfiles/.local/bin/"* "$HOME/.local/bin/"
 
-# install nvm
-export NVM_DIR="$HOME/.local/share/nvm"
-mkdir -p $NVM_DIR
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-source $NVM_DIR/nvm.sh
-nvm install --lts
+export BUN_INSTALL="$HOME/.local/share/bun"
+curl -fsSL https://bun.com/install | bash
 
 # download and install neovim
 nvim_pkg="nvim-linux-x86_64.tar.gz"

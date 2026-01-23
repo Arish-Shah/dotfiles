@@ -23,7 +23,7 @@ export ZSH="$HOME/.local/share/oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # copy all my dotfiles
-cp "$HOME/Programming/dotfiles/.zsh*" "$HOME/"
+cp "$HOME/Programming/dotfiles/.zsh"* "$HOME/"
 cp -r "$HOME/Programming/dotfiles/.config/"* "$HOME/.config/"
 cp -r "$HOME/Programming/dotfiles/.local/bin/"* "$HOME/.local/bin/"
 

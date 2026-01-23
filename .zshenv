@@ -6,10 +6,12 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# system paths
-export PATH="$PATH:$HOME/.local/bin"
+# system env
 export EDITOR="vim"
 
-# xdg redirects
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export NVM_DIR="$XDG_DATA_HOME/nvm"
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+
+# construct path
+typeset -U path PATH
+path=($HOME/.local/bin $BUN_INSTALL/bin $path)
+export PATH

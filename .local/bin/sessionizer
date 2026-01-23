@@ -27,8 +27,8 @@ switch_to() {
 }
 
 hydrate() {
-    # tmux send-keys -t "$1" "vi ." c-M
-    # tmux new-window -t "$1" -dn scratch -c "$2"
+    tmux send-keys -t "$1" "vi ." c-M
+    tmux new-window -t "$1" -dn scratch -c "$2"
 }
 
 selected_name=$(basename "$selected")

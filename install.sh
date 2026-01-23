@@ -7,6 +7,7 @@ set -e
 sudo apt autoremove --purge vim snapd -y
 sudo apt update && sudo apt upgrade -y
 sudo apt install build-essential curl fzf git gh ripgrep tmux unzip zsh --no-install-suggests --no-install-recommends -y
+sudo apt autoremove --purge vim-tiny -y
 
 # make xdg directories
 mkdir -p "$HOME/.local/"{share,state,bin} \

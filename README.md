@@ -1,7 +1,7 @@
-# dotfiles
+# dev
 
-wsl setup
+install and setup stuff in WeaSeL
 
 ```{bash}
-unset HISTFILE; curl https://raw.githubusercontent.com/Arish-Shah/dotfiles/main/install.sh | bash
+unset HISTFILE; curl https://raw.githubusercontent.com/Arish-Shah/dev/main/setup | bash
 ```

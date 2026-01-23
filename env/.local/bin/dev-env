@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 (
-cd $HOME/Programming/dotfiles
+cd $HOME/Programming/dev
 ./dev-env
 hash -r
 )

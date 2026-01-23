@@ -1,7 +1,7 @@
 -- global editor
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 50
@@ -10,7 +10,6 @@ vim.g.netrw_winsize = 50
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
-vim.opt.showmode = false
 vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
@@ -91,19 +90,6 @@ require("lazy").setup({
       vim.keymap.set("n", "<C-p>", builtin.find_files)
       vim.keymap.set("n", "<C-g>", builtin.live_grep)
     end,
-  },
-
-  { -- statusline
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      options = {
-        icons_enabled = vim.g.have_nerd_font,
-        globalstatus = true,
-        component_separators = "|",
-        section_separators = "",
-      },
-    },
   },
 
   { -- LSP

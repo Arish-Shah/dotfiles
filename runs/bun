@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sudo apt install unzip
+
+export BUN_INSTALL="$HOME/.local/share/bun"
+curl -fsSL https://bun.com/install | bash

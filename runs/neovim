@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+sudo apt install fzf ripgrep
+
+curl -L "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz" -o "/tmp/neovim"
+
+mkdir -p "$HOME/.local/share/nvim"
+tar -xzf "/tmp/neovim" -C "$HOME/.local/share/nvim" --strip-components=1
+
+rm "/tmp/neovim"

@@ -1,4 +1,3 @@
-# xdg dirs for completion and history files
 [[ -d "$XDG_STATE_HOME/zsh" ]] || mkdir -p "$XDG_STATE_HOME/zsh"
 [[ -d "$XDG_CACHE_HOME/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
 
@@ -16,5 +15,4 @@ plugins=(bun git tmux vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
-# aliases & bindings
 bindkey -s "^f" "sessionizer^M"

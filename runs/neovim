@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install fzf ripgrep
+sudo apt install fzf ripgrep -y
 
 curl -L "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz" -o "/tmp/neovim"
 

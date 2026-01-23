@@ -46,7 +46,7 @@ rm "/tmp/$nvim_pkg"
 sudo chsh -s "$(which zsh)" $USER
 
 # remove garbago files
-rm -rf "$HOME/.bash*" \
+rm -rf "$HOME/.bash"* \
     "$HOME/.motd_shown" \
     "$HOME/.profile" \
     "$HOME/.wget-hsts" \

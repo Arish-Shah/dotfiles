@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-sudo apt install tmux gh -y
+sudo apt install tmux -y
+sudo apt install gh -y

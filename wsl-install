@@ -13,7 +13,10 @@ mkdir -p "$HOME/Programming"
 git clone https://github.com/Arish-Shah/dev "$HOME/Programming/dev"
 
 pushd "$HOME/Programming/dev" > /dev/null
-./run
+./run zsh
+./run tools
+./run bun
+./run neovim
 ./dev-env
 popd > /dev/null
 

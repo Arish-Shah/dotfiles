@@ -180,7 +180,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
     opts = {
-      ensure_installed = { "javascript", "python" },
+      ensure_installed = { "python", "typescript" },
       sync_install = true,
       highlight = { enable = true },
       indent = { enable = true },

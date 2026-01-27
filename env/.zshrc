@@ -10,8 +10,7 @@ export ZSH="$XDG_DATA_HOME/oh-my-zsh"
 ZSH_THEME="robbyrussell"
 VI_MODE_SET_CURSOR=true
 KEYTIMEOUT=5
-ZSH_TMUX_AUTOSTART=true
-plugins=(bun git tmux vi-mode)
+plugins=(bun git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

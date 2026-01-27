@@ -52,8 +52,14 @@ copy_file() {
     execute cp $from $to/$name
 }
 
+link() {
+    ln -sf $1 $2
+}
+
 copy_dir env/.config $HOME/.config
 copy_dir env/.local $HOME/.local
 
 copy_file env/.zshenv $HOME
 copy_file env/.zshrc $HOME
+
+link $HOME/.local/share/nvim/bin/nvim $HOME/.local/bin/vi

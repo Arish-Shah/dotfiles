@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+unset HISTFILE
+
 sudo apt autoremove --purge vim snapd -y
 sudo apt update && sudo apt upgrade -y
 sudo apt autoremove --purge -y
